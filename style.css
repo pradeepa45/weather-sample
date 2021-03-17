@@ -1,0 +1,61 @@
+.header{
+    /* background-image: url("partlycloudy.jpg"); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* background-size: cover; */
+    /* background-color: chocolate; */
+    background-position: ;
+    width: max-content          ;
+    padding: 10px 20px 0px 20px;
+    /* padding-bottom: 0px; */
+    margin: -8px;
+    text-align: center;
+    margin-bottom: 0px;
+    color: white;
+}
+body{
+    /* background-image: url("sunny.jpg"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Garamond';
+    color: white;
+}
+
+.frosted{
+    position: relative;
+    margin: 0px 35% 30px 35%; 
+    box-sizing: content-box;
+    /* top: 150px;
+    bottom: 50px;
+    left: 35%;
+    right: 35%; */
+    background: rgba(255,255,255,0.322);
+    /* display: flex; */
+}
+
+@supports (backdrop-filter: none){
+    .frosted{
+        background: rgba(255,255,255,0.0052);
+        backdrop-filter: blur(8px);
+    }
+}
+
+.frosted table{
+    padding: 40px 40px 0px 40px;
+    border-spacing: 5px;
+}
+
+input{
+    padding: 3px;
+    background-color: transparent;
+    color: white;
+    outline-style: none;
+    border-color: transparent;
+}
+label{
+    color: white;
+}
+
+p{
+    padding-bottom: 10px;
+}
