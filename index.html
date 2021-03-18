@@ -72,22 +72,109 @@
             req.open("GET",url+"Guntur");
             req.send();
             req.onload = ()=>{
+                // console.log(req.req)
                 let obj = JSON.parse(req.response);
-                let w = obj.current.weather_descriptions;
-                if(w == "Sunny"){
-                    document.body.style.backgroundImage = "url('sunny.jpg')";
-                    // document.body.style.backgroundPosition = "center";
+                console.log(req.response);
+                let timeNow = obj.location.localtime;
+                if(timeNow < "03:30:00" || timeNow > "19:00:00"){
+                    // var period = "early morning";
+                    var darkOrLight = "dark";
                 }
-                else if(w == "Partly cloudy"){
-                    document.body.style.backgroundImage = "url('partlycloudy.jpg')";
-                    // document.body.style.backgroundPosition = "center";
-                    // document.style.backgroundSize = "cover";
+                else {
+                    var darkOrLight = "light"
                 }
-                else if(w == "Cloudy"){
-                    document.body.style.backgroundImage = "url('clody.jpg')";
+                let w = obj.current.weather_code;
+                if(darkOrLight == "light"){
+                    if(w == 113){
+                        //sunny or clear sky
+                        document.body.style.backgroundImage = "url('clearnight.jpg')";
+                    }
+                    else if(w == 116){
+                        //partly cloudy
+                        document.body.style.backgroundImage = "url('partlycloudy.jpg')";
+                    }
+                    else if(w == 119){
+                        //cloudy
+                        document.body.style.backgroundImage = "url('cloudy.jpg')";
+                    }
+                    else if(w == 143){
+                        //mist
+                        document.body.style.backgroundImage = "url('lightmist.jpg')";
+                    }
+                    else if(w == 248 || w == 260){
+                        //fog
+                        document.body.style.backgroundImage = "url('lightfog.jpg')";
+                    }
+                    else if(w == 281 || w == 311 || w == 286 || w == 296 || w == 176 || w == 263 || w == 185){
+                        //light rain
+                        //document.body.style.backgroundImage = "url('lightmist.jpg')";
+                    }
+                    else if(w == 302 || w == 299 || w == 293){
+                        //moderate rain
+                        document.body.style.backgroundImage = "url('rainy.jpg')";
+                    }
+                    else if(w == 284 || w == 308 || 305){
+                        //heavy rain
+                        document.body.style.backgroundImage = "url('heavyrain.jpg')";
+                    }
+                    else if(w == 227 || w == 179){
+                        //snow
+                        document.body.style.backgroundImage = "url('snow.jpg')";
+                    }
+                    else if(w == 200){
+                        //thunders
+                        document.body.style.backgroundImage = "url('lightthunders.jpg')";
+                    }
+                    else if(w == 230){
+                        //blizzard
+                        document.body.style.backgroundImage = "url('blizzard.jpg')";
+                    }
                 }
-                else if(w == "raining"){
-                    document.body.style.backgroundImage = "url('rainy.jpg')";
+                if(darkOrLight == "dark"){
+                    if(w == 113){
+                        //sunny or clear sky
+                        document.body.style.backgroundImage = "url('clearnight.jpg')";
+                    }
+                    else if(w == 116){
+                        //partly cloudy
+                        document.body.style.backgroundImage = "url('pcnight.jpg')";
+                    }
+                    else if(w == 119){
+                        //cloudy
+                        document.body.style.backgroundImage = "url('cloudy.jpg')";
+                    }
+                    else if(w == 143){
+                        //mist
+                        document.body.style.backgroundImage = "url('nightmist.jpg')";
+                    }
+                    else if(w == 248 || w == 260){
+                        //fog
+                        document.body.style.backgroundImage = "url('nightmist.jpg')";
+                    }
+                    else if(w == 281 || w == 311 || w == 286 || w == 296 || w == 176 || w == 263 || w == 185){
+                        //light rain
+                        document.body.style.backgroundImage = "url('lightmist.jpg')";
+                    }
+                    else if(w == 302 || w == 299 || w == 293){
+                        //moderate rain
+                        document.body.style.backgroundImage = "url('rainy.jpg')";
+                    }
+                    else if(w == 284 || w == 308 || 305){
+                        //heavy rain
+                        document.body.style.backgroundImage = "url('heavyrain.jpg')";
+                    }
+                    else if(w == 227 || w == 179){
+                        //snow
+                        document.body.style.backgroundImage = "url('nightsnow.jpg')";
+                    }
+                    else if(w == 200){
+                        //thunders
+                        document.body.style.backgroundImage = "url('darkthunders.jpg')";
+                    }
+                    else if(w == 230){
+                        //blizzard
+                        document.body.style.backgroundImage = "url('darkb.jpg')";
+                    }
                 }
                 // console.log(obj.current.temperature);
                 document.getElementById("location").value = obj.location.name + ", " + obj.location.country;
